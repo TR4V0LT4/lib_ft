@@ -6,7 +6,7 @@
 /*   By: wlahyani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:21:16 by wlahyani          #+#    #+#             */
-/*   Updated: 2021/12/01 18:07:12 by wlahyani         ###   ########.fr       */
+/*   Updated: 2021/12/04 16:58:28 by wlahyani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -34,7 +34,7 @@ int	count_words(char const *p, char c)
 	return (count);
 }
 
-static char	**ft_copy(char **t, char const *s, int wn, char c)
+char	**ft_copy(char **t, char const *s, int wn, char c)
 {
 	int	j;
 	int	i;
@@ -59,6 +59,18 @@ static char	**ft_copy(char **t, char const *s, int wn, char c)
 	return (t);
 }
 
+void	myfree(char **t, int j)
+{
+	while (j > 0)
+	{
+		free (t[j - 1]);
+		j--;
+	}
+	free (t);
+	t = NULL;
+	return ;
+}
+
 void	ft_my_alloc(char **t, char const *s, int wn, char c)
 {	
 	int	i;
@@ -78,6 +90,8 @@ void	ft_my_alloc(char **t, char const *s, int wn, char c)
 			i++;
 		}
 		t[j] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!t[j])
+			myfree(t, j);
 		j++;
 	}
 }

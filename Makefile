@@ -6,7 +6,7 @@
 #    By: wlahyani <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 20:42:56 by wlahyani          #+#    #+#              #
-#    Updated: 2021/11/30 21:09:20 by wlahyani         ###   ########.fr        #
+#    Updated: 2021/12/04 20:27:40 by wlahyani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,3 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re
